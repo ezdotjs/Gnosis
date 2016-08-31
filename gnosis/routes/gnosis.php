@@ -1,5 +1,5 @@
 <?php
 
-Route::group(['namespace' => 'Gnosis'], function () {
-    // Gnosis routes go here
+Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard-index');
 });
