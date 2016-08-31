@@ -1,0 +1,10 @@
+////
+/// Styling for universal structural elements
+/// @group objects
+/// @author Kristian Cox
+////
+
+.wrapper {
+    background: lighten($color-dark, 5%);
+    min-height: 100vh;
+}

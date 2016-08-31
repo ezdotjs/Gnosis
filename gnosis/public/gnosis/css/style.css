@@ -440,4 +440,8 @@ p {
   margin: 0 0 2rem;
   color: #333333; }
 
+.wrapper {
+  background: #314757;
+  min-height: 100vh; }
+
 /*# sourceMappingURL=style.css.map */
