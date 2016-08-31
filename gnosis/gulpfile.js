@@ -12,5 +12,5 @@ const elixir = require('laravel-elixir');
  */
 
 elixir(mix => {
-    mix.sass('style.scss');
+    mix.sass('style.scss', 'public/gnosis/css');
 });
