@@ -364,4 +364,80 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+html,
+body {
+  height: 100%;
+  min-height: 100%; }
+
+::-moz-selection {
+  background: #8F4DAE; }
+
+::selection {
+  background: #8F4DAE; }
+
+::-moz-selection {
+  background: #8F4DAE; }
+
+* {
+  font-size: 16px;
+  line-height: 2rem;
+  font-family: "Open Sans", sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Dosis", sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+table,
+blockquote,
+pre {
+  margin: 0 0 1rem; }
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 3rem;
+  margin: 0 0 1.8rem; }
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  margin: 0 0 2.2rem; }
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.2rem;
+  margin: 0 0 2.2rem; }
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.2rem;
+  margin: 0 0 2.2rem; }
+
+h5 {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0 0 2.2rem; }
+
+h6 {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin: 0 0 2rem; }
+
+p {
+  line-height: 2rem;
+  margin: 0 0 2rem;
+  color: #333333; }
+
 /*# sourceMappingURL=style.css.map */
