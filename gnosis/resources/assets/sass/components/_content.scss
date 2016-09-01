@@ -1,0 +1,43 @@
+.content {
+    flex: auto;
+    position: relative;
+
+    &__header {
+        height:     3rem;
+        background: $color-primary;
+        padding:    0 2rem;
+        box-sizing: border-box;
+        color:      #FFFFFF;
+        position:   absolute;
+        top:        0;
+        left:       0;
+        right:      0;
+
+        .icon {
+            padding-right: 1rem;
+            float:         left;
+            padding-top:   0.5rem;
+        }
+
+        h1 {
+            font-size:      1rem;
+            color:          #FFFFFF;
+            text-transform: uppercase;
+            float:          left;
+        }
+    }
+
+    &__main {
+        height:      100vh;
+        padding-top: 3rem;
+        box-sizing:  border-box;
+        overflow:    hidden;
+    }
+
+    &__page {
+        box-sizing: border-box;
+        padding:    2rem;
+        overflow-y: scroll;
+        height:     100%;
+    }
+}
