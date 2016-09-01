@@ -10,7 +10,14 @@
         <div class="wrapper">
             {% include 'gnosis/partials/_navigation.twig' %}
             <div class="content">
-
+                <header class="content__header">
+                    <h1>{{ block('title') }}</h1>
+                </header>
+                <main class="content__main">
+                    <div class="content__page">
+                        {% block content %}{% endblock %}
+                    </div>
+                </main>
             </div>
         </div>
         <script>
