@@ -442,6 +442,35 @@ p {
 
 .wrapper {
   background: #314757;
-  min-height: 100vh; }
+  min-height: 100vh;
+  display: -webkit-box;
+  display: flex; }
+
+.nav {
+  background: #283a47;
+  flex-basis: content; }
+  .nav ul {
+    list-style: none;
+    text-align: left;
+    font-size: 0;
+    padding: 0; }
+    .nav ul .nav__item {
+      width: 100%;
+      display: block; }
+      .nav ul .nav__item a {
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 1rem;
+        color: #FFFFFF;
+        padding: 0 1.5rem;
+        display: block;
+        line-height: 3rem; }
+        .nav ul .nav__item a:hover {
+          background: rgba(255, 255, 255, 0.2); }
+        .nav ul .nav__item a .icon {
+          margin-right: 0.5rem; }
+      .nav ul .nav__item--active {
+        box-shadow: inset 4px 0 0 0 #8F4DAE;
+        background: #314757; }
 
 /*# sourceMappingURL=style.css.map */

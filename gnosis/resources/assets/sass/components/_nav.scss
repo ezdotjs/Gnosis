@@ -1,0 +1,44 @@
+////
+/// Styling for primary navigation
+/// @group components
+/// @author Kristian Cox
+////
+
+.nav {
+    background: $color-dark;
+    flex-basis: content;
+
+    ul {
+        list-style: none;
+        text-align: left;
+        font-size:  0;
+        padding:    0;
+
+        .nav__item {
+            width:   100%;
+            display: block;
+            a {
+                text-decoration: none;
+                text-transform:  capitalize;
+                font-size:       1rem;
+                color:           #FFFFFF;
+                padding:         0 1.5rem;
+                display:         block;
+                line-height:     3rem;
+                &:hover {
+                    background:  rgba(#FFFFFF, 0.2);
+                }
+            }
+
+            &--active {
+                box-shadow: inset 4px 0 0 0 $color-primary;
+                background: lighten($color-dark, 5%);
+                a {
+                    &:hover {
+
+                    }
+                }
+            }
+        }
+    }
+}
