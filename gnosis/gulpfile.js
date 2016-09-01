@@ -1,16 +1,21 @@
-const elixir = require('laravel-elixir');
+const elixir   = require('laravel-elixir');
+const svgmin   = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
+const cheerio  = require('gulp-cheerio');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
+const config = {
+    source: './resources/assets',
+    build:  './public/gnosis'
+};
 
 elixir(mix => {
     mix.sass('style.scss', 'public/gnosis/css');
+});
+
+gulp.task('gnosis:icons', () => {
+    return gulp.src(`${config.source}/icons/{,*/}*.svg`)
+        .pipe(svgmin())
+        .pipe(svgstore())
+        .pipe(cheerio($ => $('svg').attr('style',  'display:none')))
+        .pipe(gulp.dest(`${config.build}/img/`))
 });
