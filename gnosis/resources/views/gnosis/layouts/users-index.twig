@@ -1,0 +1,37 @@
+{% extends 'gnosis/layouts/master.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+    <table class="table table--striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for model in models %}
+                <tr>
+                    <td>{{ model.name|capitalize }}</td>
+                    <td>{{ model.username }}</td>
+                    <td>{{ model.email }}</td>
+                    <td>{{ model.created_at|date('d/m/Y') }} {{ model.created_at|date('H:i') }}</td>
+                    <td>{{ model.updated_at|date('d/m/Y') }} {{ model.updated_at|date('H:i') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}
