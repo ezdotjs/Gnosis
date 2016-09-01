@@ -15,6 +15,8 @@
         </div>
         <script>
             // Critical JS
+
+            // Load webfonts asynchronously
             var WebFontConfig = {
                 google: {
                     families: [
@@ -23,10 +25,23 @@
                     ]
                 }
             };
-            (function(d) {
+            (function (d) {
                 var wf = d.createElement('script'), s = d.scripts[0];
                 wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
                 s.parentNode.insertBefore(wf, s);
+            })(document);
+
+            // Load icon SVG asynchronously
+            (function (d) {
+                var x = new XMLHttpRequest();
+                x.open('GET', '/gnosis/img/icons.svg', true);
+                x.send();
+                x.onload = function (e) {
+                    var div = d.createElement('div');
+                    div.style.display = 'none';
+                    div.innerHTML = x.responseText;
+                    d.body.insertBefore(div, d.body.childNodes[0]);
+                }
             })(document);
         </script>
     </body>

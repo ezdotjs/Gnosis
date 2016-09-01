@@ -28,6 +28,12 @@
                 &:hover {
                     background:  rgba(#FFFFFF, 0.2);
                 }
+
+                .icon {
+                    height:       1rem;
+                    width:        1rem;
+                    margin-right: 0.5rem;
+                }
             }
 
             &--active {
