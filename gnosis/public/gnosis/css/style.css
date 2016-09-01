@@ -499,4 +499,78 @@ p {
         .nav ul .nav__item--disabled a {
           color: rgba(255, 255, 255, 0.2); }
 
+.content {
+  -webkit-box-flex: 1;
+  flex: auto;
+  position: relative; }
+  .content__header {
+    height: 3rem;
+    background: #8F4DAE;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+    .content__header .icon {
+      padding-right: 1rem;
+      float: left;
+      padding-top: 0.5rem; }
+    .content__header h1 {
+      font-size: 1rem;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      float: left; }
+  .content__main {
+    height: 100vh;
+    padding-top: 3rem;
+    box-sizing: border-box;
+    overflow: hidden; }
+  .content__page {
+    box-sizing: border-box;
+    padding: 2rem;
+    overflow-y: scroll;
+    height: 100%; }
+
+.table {
+  background: #FFFFFF;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-collapse: collapse;
+  border: none;
+  border-spacing: 0px; }
+  .table thead,
+  .table tfoot {
+    background: #8F4DAE; }
+    .table thead th,
+    .table tfoot th {
+      font-weight: bold;
+      color: white;
+      border: none;
+      padding: 1rem;
+      text-align: left;
+      line-height: 1rem; }
+  .table tbody td {
+    border: none;
+    padding: 1rem;
+    text-align: left;
+    line-height: 1rem;
+    vertical-align: top; }
+    .table tbody td:hover .table__controls {
+      opacity: 1; }
+  .table--striped tbody tr:nth-child(odd) {
+    background: #fafafa; }
+  .table__controls {
+    width: 100%;
+    display: inline-block;
+    font-size: 0.8rem;
+    opacity: 0; }
+    .table__controls a {
+      text-decoration: none;
+      font-size: inherit;
+      color: inherit; }
+      .table__controls a:last-child {
+        color: #EF5350; }
+
 /*# sourceMappingURL=style.css.map */
