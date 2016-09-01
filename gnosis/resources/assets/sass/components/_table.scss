@@ -1,3 +1,9 @@
+////
+/// Styling for tables
+/// @group components
+/// @author Kristian Cox
+////
+
 .table {
     background:      #FFFFFF;
     width:           100%;
@@ -53,7 +59,7 @@
             text-decoration: none;
             font-size:       inherit;
             color:           inherit;
-            
+
             &:last-child {
                 color: $color-danger;
             }
