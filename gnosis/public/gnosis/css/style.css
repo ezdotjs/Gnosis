@@ -494,5 +494,9 @@ p {
       .nav ul .nav__item--active {
         box-shadow: inset 4px 0 0 0 #8F4DAE;
         background: #314757; }
+      .nav ul .nav__item--disabled {
+        pointer-events: none; }
+        .nav ul .nav__item--disabled a {
+          color: rgba(255, 255, 255, 0.2); }
 
 /*# sourceMappingURL=style.css.map */
