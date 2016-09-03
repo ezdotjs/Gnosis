@@ -1,0 +1,62 @@
+{% extends 'gnosis/layouts/master.twig' %}
+
+{% block title %}Create New User{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card__body">
+            {{ form_open({'route' : 'users.store', 'method' : 'POST', 'class' : 'form'}) }}
+                <fieldset>
+                    <legend>Basic Details</legend>
+                    <div class="grid grid--gutters">
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('username', 'Username') }}
+                                {{ form_text('username') }}
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('email', 'Email') }}
+                                {{ form_email('email') }}
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('name', 'Full Name') }}
+                                {{ form_text('name') }}
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('role', 'Role') }}
+                                {{ form_select('role') }}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Password</legend>
+                    <div class="grid grid--gutters">
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('password', 'Password') }}
+                                {{ form_password('password') }}
+                            </div>
+                        </div>
+                        <div class="grid__col grid__col--md-6 margin-bottom">
+                            <div class="form__field">
+                                {{ form_label('password_confirm', 'Confirm Password') }}
+                                {{ form_password('password_confirm') }}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form__controls">
+                    {{ form_button('Save', {'type' : 'submit', 'value' : 'save', 'class' : 'button button--primary'}) }}
+                    {{ form_button('Save & Exit', {'type' : 'submit', 'value' : 'save_exit', 'class' : 'button button--primary'}) }}
+                </div>
+            {{ form_close() }}
+        </div>
+    </div>
+{% endblock %}

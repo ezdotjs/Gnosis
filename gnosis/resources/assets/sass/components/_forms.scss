@@ -1,0 +1,17 @@
+////
+/// Styling for specific HTML form elements
+/// @group components
+/// @author Kristian Cox
+////
+
+.form {
+    .form__controls {
+        @extend %clearfix;
+
+        > button,
+        > input {
+            float:       right;
+            margin-left: 1rem;
+        }
+    }
+}
