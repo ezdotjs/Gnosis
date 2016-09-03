@@ -1,0 +1,27 @@
+////
+/// Styling for card component
+/// @group components
+/// @author Kristian Cox
+////
+
+.card {
+    background: $color-light;
+    box-shadow: $global-box-shadow;
+    box-sizing: border-box;
+    color:      #666666;
+
+    &__body {
+        padding:    1rem;
+    }
+
+    &__title {
+        background: darken($color-light, 10%);
+        padding:    1rem;
+
+        > h3 {
+            margin:      0;
+            font-size:   1rem;
+            line-height: 1rem;
+        }
+    }
+}
