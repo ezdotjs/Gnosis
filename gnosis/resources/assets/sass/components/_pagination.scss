@@ -7,12 +7,16 @@
 .pagination
 {
     text-align: center;
-    box-shadow: $global-box-shadow;
 
     ul {
+
         padding:       0;
         margin-bottom: 1rem;
         font-size:     0;
+        box-shadow:    $global-box-shadow;
+        display:       inline-block;
+        
+        @extend %clearfix;
     }
 
     &__link {
