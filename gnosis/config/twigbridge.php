@@ -112,8 +112,8 @@ return [
             'TwigBridge\Extension\Laravel\Url',
             // 'TwigBridge\Extension\Laravel\Gate',
 
-            // 'TwigBridge\Extension\Laravel\Form',
-            // 'TwigBridge\Extension\Laravel\Html',
+            'TwigBridge\Extension\Laravel\Form',
+            'TwigBridge\Extension\Laravel\Html',
             // 'TwigBridge\Extension\Laravel\Legacy\Facades',
         ],
 
@@ -209,7 +209,7 @@ return [
         |
         */
         'filters' => [
-            'get' => 'data_get',    
+            'get' => 'data_get',
         ],
-    ],  
+    ],
 ];
