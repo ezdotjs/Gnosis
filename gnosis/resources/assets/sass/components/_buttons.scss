@@ -1,0 +1,94 @@
+////
+/// Styling for buttons
+/// @group components
+/// @author Kristian Cox
+////
+
+.button {
+    background:      $color-default;
+    display:         inline-block;
+    font-size:       1rem;
+    color:           #FFFFFF;
+    box-sizing:      border-box;
+    line-height:     $line-height-base;
+    padding:         0 1.5em 3px 1.5em;
+    text-decoration: none;
+    border-radius:   $global-border-radius;
+    transition:      background-color 100ms ease-in-out,
+                     box-shadow 100ms ease-in-out,
+                     padding 100ms ease-in-out,
+                     border-colour 100ms ease-in-out;
+    cursor:          pointer;
+    text-align:      center;
+    box-shadow:      $global-box-shadow, inset 0 -3px 0 0 darken($color-default, 10%);
+    border:          1px solid darken($color-default, 10%);
+    vertical-align:  top;
+    outline:         none;
+
+    &:active {
+        box-shadow:     $global-box-shadow, inset 0 3px 0 0 darken($color-default, 15%);
+        color:          rgba(255, 255, 255, 0.8);
+        padding:        3px 1.5em 0 1.5em;
+        background:     darken($color-default, 5%);
+    }
+
+    &--primary {
+        background: $color-primary;
+        color:      #FFFFFF;
+        border:     1px solid darken($color-primary, 10%);
+        box-shadow: $global-box-shadow, inset 0 -3px 0 0 darken($color-primary, 10%);
+        &:active {
+            box-shadow: $global-box-shadow, inset 0 3px 0 0 darken($color-primary, 15%);
+            color:      rgba(#FFFFFF, 0.8);
+            background: darken($color-primary, 5%);
+        }
+    }
+
+    &--success {
+        background: $color-success;
+        color:      #FFFFFF;
+        border:     1px solid darken($color-success, 10%);
+        box-shadow: $global-box-shadow, inset 0 -3px 0 0 darken($color-success, 10%);
+        &:active {
+            box-shadow: $global-box-shadow, inset 0 3px 0 0 darken($color-success, 15%);
+            color:      rgba(#FFFFFF, 0.8);
+            background: darken($color-success, 5%);
+        }
+    }
+
+    &--info {
+        background: $color-info;
+        color:      #FFFFFF;
+        border:     1px solid darken($color-info, 10%);
+        box-shadow: $global-box-shadow, inset 0 -3px 0 0 darken($color-info, 10%);
+        &:active {
+            box-shadow: $global-box-shadow, inset 0 3px 0 0 darken($color-info, 15%);
+            color:      rgba(#FFFFFF, 0.8);
+            background: darken($color-info, 5%);
+        }
+    }
+
+    &--warning {
+        background: $color-warning;
+        color:      #FFFFFF;
+        border:     1px solid darken($color-warning, 10%);
+        box-shadow: $global-box-shadow, inset 0 -3px 0 0 darken($color-warning, 10%);
+        &:active {
+            box-shadow: $global-box-shadow, inset 0 3px 0 0 darken($color-warning, 15%);
+            color:      rgba(#FFFFFF, 0.8);
+            background: darken($color-warning, 5%);
+        }
+    }
+
+    &--danger {
+        background: $color-danger;
+        color:      #FFFFFF;
+        border:     1px solid darken($color-danger, 10%);
+        box-shadow: $global-box-shadow, inset 0 -3px 0 0 darken($color-danger, 10%);
+        &:active {
+            box-shadow: $global-box-shadow, inset 0 3px 0 0 darken($color-danger, 15%);
+            color:      rgba(#FFFFFF, 0.8);
+            background: darken($color-danger, 5%);
+        }
+    }
+}
