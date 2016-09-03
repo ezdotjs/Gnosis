@@ -533,6 +533,55 @@ p {
     overflow-y: scroll;
     height: 100%; }
 
+.pagination {
+  text-align: center; }
+  .pagination ul {
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 0; }
+  .pagination__link {
+    display: inline-block;
+    width: 3rem; }
+    .pagination__link a,
+    .pagination__link span {
+      font-size: 1rem;
+      width: 100%;
+      line-height: 3rem;
+      background: #FFFFFF;
+      display: block;
+      box-sizing: border-box;
+      position: relative; }
+    .pagination__link a {
+      text-decoration: none;
+      color: #333333; }
+    .pagination__link span {
+      color: #AAAAAA; }
+    .pagination__link--disabled a,
+    .pagination__link--disabled span {
+      color: #BBBBBB; }
+    .pagination__link--prev a,
+    .pagination__link--prev span, .pagination__link--next a,
+    .pagination__link--next span {
+      background-color: #8F4DAE;
+      color: white; }
+    .pagination__link--prev.pagination__link--disabled a,
+    .pagination__link--prev.pagination__link--disabled span, .pagination__link--next.pagination__link--disabled a,
+    .pagination__link--next.pagination__link--disabled span {
+      color: #b080c7; }
+    .pagination__link--current a:after,
+    .pagination__link--current span:after {
+      content: ' ';
+      position: absolute;
+      display: block;
+      bottom: 0.5rem;
+      left: 50%;
+      width: 1rem;
+      height: 2px;
+      z-index: 100;
+      background: #8F4DAE;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%); }
+
 .table {
   background: #FFFFFF;
   width: 100%;
