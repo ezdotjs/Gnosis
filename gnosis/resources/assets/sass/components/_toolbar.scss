@@ -6,10 +6,9 @@
 
 .toolbar {
     @extend %clearfix;
-    background:    $color-primary;
+    // background:    #FFFFFF;
     margin-bottom: 1rem;
-    padding:       0.5rem 1rem;
-    box-shadow:    $global-box-shadow;
+    // box-shadow:    $global-box-shadow;
 
     &__new {
         float: left;
