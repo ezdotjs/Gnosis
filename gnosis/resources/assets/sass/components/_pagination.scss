@@ -7,6 +7,8 @@
 .pagination
 {
     text-align: center;
+    box-shadow: $global-box-shadow;
+
     ul {
         padding:       0;
         margin-bottom: 1rem;
@@ -40,7 +42,7 @@
         &--disabled {
             a,
             span {
-                color: #BBBBBB;       ;
+                color: #BBBBBB;
             }
         }
 
@@ -68,16 +70,16 @@
 
             a:after,
             span:after {
-                content: ' ';
-                position:absolute;
-                display:block;
-                bottom: 0.5rem;
-                left: 50%;
-                width: 1rem;
-                height: 2px;
-                z-index: 100;
+                content:    ' ';
+                position:   absolute;
+                display:    block;
+                bottom:     0.5rem;
+                left:       50%;
+                width:      1rem;
+                height:     2px;
+                z-index:    100;
                 background: $color-primary;
-                transform: translateX(-50%);
+                transform:  translateX(-50%);
             }
         }
     }
