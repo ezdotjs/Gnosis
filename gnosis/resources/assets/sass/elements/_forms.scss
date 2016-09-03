@@ -37,7 +37,7 @@ textarea {
 
 select {
     $font-size:    strip-unit($font-size-base);
-    $line-height:  strip-unit($line-height-base);
+    $line-height:  1.5;
     $padding:      $line-height * $font-size;
     $padding:      (($padding - $font-size) / 2) + px;
 
@@ -54,4 +54,20 @@ select {
 label {
     font-size:       1rem;
     line-height:     $line-height-base;
+}
+
+fieldset {
+    margin:  0 -1rem 1rem -1rem;
+    padding: 0 1rem 1rem 1rem;
+    border:  0;
+    border-bottom: 2px solid darken($color-light, 10%);
+
+    &:last-child {
+        margin-bottom: 0;
+        border: 0;
+    }
+}
+
+legend {
+    @extend %h3-style;
 }
