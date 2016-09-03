@@ -1,11 +1,15 @@
 <div class="toolbar">
     <div class="toolbar__new">
-        <a href="button button--primary">New</a>
+        <a class="button button--primary">New</a>
     </div>
     <div class="toolbar__search">
-        <form action="{{ route('users.index') }}">
-            <input type="search">
-            <input type="submit">
+        <form class="search" action="{{ route('users.index') }}">
+            <div class="search__input">
+                <input type="search">
+            </div>
+            <div class="search__button">
+                <input class="button button--primary" type="submit" value="Search">
+            </div>
         </form>
     </div>
 </div>
