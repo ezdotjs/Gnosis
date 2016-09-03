@@ -1,0 +1,84 @@
+////
+/// Styling for pagination
+/// @group components
+/// @author Kristian Cox
+////
+
+.pagination
+{
+    text-align: center;
+    ul {
+        padding:       0;
+        margin-bottom: 1rem;
+        font-size:     0;
+    }
+
+    &__link {
+        display: inline-block;
+        width:   3rem;
+
+        a,
+        span {
+            font-size:   1rem;
+            width:       100%;
+            line-height: 3rem;
+            background:  #FFFFFF;
+            display:     block;
+            box-sizing:  border-box;
+            position:    relative;
+        }
+
+        a {
+            text-decoration: none;
+            color:           #333333;
+        }
+
+        span {
+            color: #AAAAAA;
+        }
+
+        &--disabled {
+            a,
+            span {
+                color: #BBBBBB;       ;
+            }
+        }
+
+        &--prev,
+        &--next {
+            a,
+            span {
+                background-color: $color-primary;
+                color:            white;
+            }
+
+            &.pagination__link--disabled {
+                a,
+                span {
+                    color: lighten($color-primary, 15%);
+                }
+            }
+        }
+
+        &--current {
+            a,
+            span {
+
+            }
+
+            a:after,
+            span:after {
+                content: ' ';
+                position:absolute;
+                display:block;
+                bottom: 0.5rem;
+                left: 50%;
+                width: 1rem;
+                height: 2px;
+                z-index: 100;
+                background: $color-primary;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
