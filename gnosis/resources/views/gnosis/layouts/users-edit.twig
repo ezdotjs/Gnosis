@@ -5,7 +5,7 @@
 {% block content %}
     <div class="card">
         <div class="card__body">
-            {{ form_open({'route' : 'users.store', 'method' : 'POST', 'class' : 'form'}) }}
+            {{ form_model(model, {'route' : 'users.store', 'method' : 'POST', 'class' : 'form'}) }}
                 <fieldset>
                     <legend>Basic Details</legend>
                     <div class="grid grid--gutters">

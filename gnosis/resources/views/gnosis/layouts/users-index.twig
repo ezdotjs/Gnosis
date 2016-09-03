@@ -8,7 +8,6 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Username</th>
                 <th>Email</th>
                 <th width="90">Created</th>
                 <th width="90">Updated</th>
@@ -23,7 +22,6 @@
                             <a href="{{ route('users.edit', model.id) }}">Edit</a> | <a class="confirm" href="{{ route('users.destroy', model.id) }}">Bin</a>
                         </span>
                     </td>
-                    <td>{{ model.username }}</td>
                     <td>{{ model.email }}</td>
                     <td>{{ model.created_at|date('d/m/Y') }} {{ model.created_at|date('H:i') }}</td>
                     <td>{{ model.updated_at|date('d/m/Y') }} {{ model.updated_at|date('H:i') }}</td>
@@ -33,7 +31,6 @@
         <tfoot>
             <tr>
                 <th>Name</th>
-                <th>Username</th>
                 <th>Email</th>
                 <th>Created</th>
                 <th>Updated</th>

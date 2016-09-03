@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Gnosis;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use App\Http\Requests\Gnosis\UserStoreRequest;
 use App\Models\Gnosis\User;
 use Illuminate\Http\Request;
+use Session;
 
 class UserController extends Controller
 {
@@ -36,9 +37,20 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        $model = User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        Session::flash('flash_message', [
+            'type'    => 'success',
+            'message' => 'The new user was created successfully.'
+        ]);
+
+        return redirect()->route('users.edit', ['id' => $model->id]);
     }
 
     /**
@@ -60,7 +72,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = User::findOrFail($id);
+
+        return view('gnosis/layouts/users-edit')->with(compact('model'));
     }
 
     /**
