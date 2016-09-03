@@ -1,0 +1,21 @@
+////
+/// Styling for the toolbar component
+/// @group components
+/// @author Kristian Cox
+////
+
+.toolbar {
+    @extend %clearfix;
+    background:    $color-primary;
+    margin-bottom: 1rem;
+    padding:       0.5rem 1rem;
+    box-shadow:    $global-box-shadow;
+
+    &__new {
+        float: left;
+    }
+
+    &__search {
+        float: right;
+    }
+}
