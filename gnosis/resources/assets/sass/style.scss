@@ -3,9 +3,11 @@
 @import 'settings/fonts';
 @import 'settings/colors';
 @import 'settings/typography';
+@import 'settings/forms';
 
 // TOOLS
 @import 'tools/clearfix';
+@import 'tools/strip-unit';
 
 // GENERIC
 @import 'generic/normalize';
@@ -13,6 +15,7 @@
 // ELEMENTS
 @import 'elements/html';
 @import 'elements/typography';
+@import 'elements/forms';
 
 // OBJECTS
 @import 'objects/scaffolding';
