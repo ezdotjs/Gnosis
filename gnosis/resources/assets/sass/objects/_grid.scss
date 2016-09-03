@@ -1,0 +1,62 @@
+////
+/// A flexbox based grid system
+/// @group objects
+/// @author Kristian Cox
+////
+
+.grid {
+    display:        flex;
+    box-sizing:     border-box;
+    flex:           0 1 auto;
+    flex-direction: row;
+    flex-wrap:      wrap;
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+
+    &--gutters {
+        margin: 0 -1rem;
+
+        > .grid__col {
+            padding:    0 1rem;
+            box-sizing: border-box;
+        }
+    }
+
+    &--tall {
+        height: 100%;
+    }
+
+    .grid__col {
+        flex-basis: 100%;
+        max-width:  100%;
+
+        @each $breakpoint, $size in $breakpoints {
+            @include breakpoint($breakpoint) {
+                @for $i from 1 through $grid-columns {
+                    &--#{$breakpoint}-#{$i} {
+                        $percent: (100% / $grid-columns) * $i;
+                        flex-basis: $percent;
+                        max-width: $percent;
+                    }
+                    &--#{$breakpoint}-offset-#{$i} {
+                        $percent: (100% / $grid-columns) * $i;
+                        margin-left: $percent;
+                    }
+                    &--#{$breakpoint}-auto {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+
+        &--auto {
+            flex: 1;
+        }
+
+        &--content {
+            flex-basis: content;
+        }
+    }
+}

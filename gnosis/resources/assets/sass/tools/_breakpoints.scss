@@ -1,0 +1,15 @@
+////
+/// Media query generator, based on breakpoint presets
+/// @group tools
+/// @author Kristian Cox
+////
+
+@mixin breakpoint($size) {
+    @if map-has-key($breakpoints, $size) {
+        @media screen and (min-width: #{map-get($breakpoints, $size)}) {
+            @content;
+        }
+    } @else {
+        @warn "No breakpoint found with key `#{$breakpoint}`.";
+    }
+}
