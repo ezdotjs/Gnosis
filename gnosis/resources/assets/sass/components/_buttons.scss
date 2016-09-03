@@ -10,7 +10,13 @@
     font-size:       1rem;
     color:           #FFFFFF;
     box-sizing:      border-box;
-    line-height:     $line-height-base;
+
+    $font-size:    strip-unit($font-size-base);
+    $line-height:  strip-unit($line-height-base);
+    $actual:       (($line-height * $font-size) - 4) + px;
+
+    line-height:    $actual;
+
     padding:         0 1.5em 3px 1.5em;
     text-decoration: none;
     border-radius:   $global-border-radius;
