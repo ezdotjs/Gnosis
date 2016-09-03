@@ -1,0 +1,17 @@
+////
+/// Clearfix, resolves height issues
+/// @group tools
+/// @author Kristian Cox
+////
+
+
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
