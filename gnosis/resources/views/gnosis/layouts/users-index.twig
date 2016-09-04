@@ -3,7 +3,7 @@
 {% block title %}Users{% endblock %}
 
 {% block content %}
-    {% include 'gnosis/partials/_toolbar.twig' %}
+    {% include 'gnosis/partials/_toolbar.twig' with {'link_new' : route('users.create')} %}
     <table class="table table--striped">
         <thead>
             <tr>
