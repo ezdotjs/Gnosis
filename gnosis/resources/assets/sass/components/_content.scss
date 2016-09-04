@@ -43,7 +43,7 @@
     &__page {
         box-sizing: border-box;
         padding:    2rem;
-        overflow-y: scroll;
+        overflow-y: auto;
         height:     100%;
     }
 }
