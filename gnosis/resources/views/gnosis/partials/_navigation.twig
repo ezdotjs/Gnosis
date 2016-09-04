@@ -6,46 +6,46 @@
         {# TODO: Add user details here #}
     </div>
     <ul>
-        <li class="nav__item">
-            <a href="/">
+        <li class="nav__item {{ app.request.path == 'cms' ? 'nav__item--active' : '' }}">
+            <a href="{{ route('dashboard') }}">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_dashboard"></use>
-                </svg> Dashboard
+                </svg><span class="nav__label">Dashboard</span>
             </a>
         </li>
-        <li class="nav__item nav__item--disabled">
+        <li class="nav__item {{ 'cms/templates' in app.request.path ? 'nav__item--active' : '' }} nav__item--disabled">
             <a href="/">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_templates"></use>
-                </svg> Templates
+                </svg><span class="nav__label">Templates</span>
             </a>
         </li>
-        <li class="nav__item nav__item--disabled">
+        <li class="nav__item {{ 'cms/pages' in app.request.path ? 'nav__item--active' : '' }} nav__item--disabled">
             <a href="/">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_pages"></use>
-                </svg> Pages
+                </svg><span class="nav__label">Pages</span>
             </a>
         </li>
-        <li class="nav__item nav__item--disabled">
+        <li class="nav__item {{ 'cms/analytics' in app.request.path ? 'nav__item--active' : '' }} nav__item--disabled">
             <a href="/">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_analytics"></use>
-                </svg> Analytics
+                </svg><span class="nav__label">Analytics</span>
             </a>
         </li>
-        <li class="nav__item nav__item--disabled">
-            <a href="/">
+        <li class="nav__item {{ 'cms/users' in app.request.path ? 'nav__item--active' : '' }} {{ app.request.is('users') }}">
+            <a href="{{ route('users.index') }}">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_users"></use>
-                </svg> Users
+                </svg><span class="nav__label">Users</span>
             </a>
         </li>
-        <li class="nav__item nav__item--disabled">
+        <li class="nav__item {{ 'cms/settings' in app.request.path ? 'nav__item--active' : '' }} nav__item--disabled">
             <a href="/">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_settings"></use>
-                </svg> Settings
+                </svg><span class="nav__label">Settings</span>
             </a>
         </li>
     </ul>

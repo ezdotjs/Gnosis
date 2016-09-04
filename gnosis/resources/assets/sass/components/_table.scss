@@ -65,4 +65,19 @@
             }
         }
     }
+
+    @media screen and (max-width: (#{map-get($breakpoints, 'md')}) - 1px) {
+        th,
+        td {
+            display: none;
+        }
+
+        .show-mobile {
+            display: table-cell;
+        }
+
+        &__controls {
+            opacity: 1;
+        }
+    }
 }

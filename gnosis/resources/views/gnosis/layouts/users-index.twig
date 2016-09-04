@@ -7,7 +7,7 @@
     <table class="table table--striped">
         <thead>
             <tr>
-                <th>Name</th>
+                <th class="show-mobile">Name</th>
                 <th>Email</th>
                 <th width="90">Created</th>
                 <th width="90">Updated</th>
@@ -16,7 +16,7 @@
         <tbody>
             {% for model in models %}
                 <tr>
-                    <td>
+                    <td class="show-mobile">
                         {{ model.name|capitalize }}
                         <span class="table__controls">
                             <a href="{{ route('users.edit', model.id) }}">Edit</a> | <a class="confirm" href="{{ route('users.destroy', model.id) }}">Bin</a>
@@ -30,7 +30,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th>
+                <th class="show-mobile">Name</th>
                 <th>Email</th>
                 <th>Created</th>
                 <th>Updated</th>
