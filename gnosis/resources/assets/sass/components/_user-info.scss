@@ -42,4 +42,36 @@
         line-height: 0.75rem;
         margin-top:  0.25rem;
     }
+
+    &--super-admin {
+        .user-info__photo {
+            img {
+                border: 0.25rem solid $color-super-admin;
+            }
+        }
+    }
+
+    &--admin {
+        .user-info__photo {
+            img {
+                border: 0.25rem solid $color-admin;
+            }
+        }
+    }
+
+    &--developer {
+        .user-info__photo {
+            img {
+                border: 0.25rem solid $color-developer;
+            }
+        }
+    }
+
+    &--contributor {
+        .user-info__photo {
+            img {
+                border: 0.25rem solid $color-contributor;
+            }
+        }
+    }
 }
