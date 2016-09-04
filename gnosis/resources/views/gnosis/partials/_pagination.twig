@@ -1,22 +1,25 @@
 <div class="pagination">
     <ul>
-        <li class="pagination__link pagination__link--prev pagination__link--disabled">
-            <a href="#">&lt;</a>
+        <li class="pagination__link pagination__link--prev {{ paginator.onFirstPage() ? 'pagination__link--disabled' : '' }}">
+            <a href="{{ paginator.previousPageUrl() }}">&lt;</a>
         </li>
-        <li class="pagination__link pagination__link--current">
-            <span>1</span>
-        </li>
-        <li class="pagination__link">
-            <span>2</span>
-        </li>
-        <li class="pagination__link pagination__link--dots">
-            <span>&hellip;</span>
-        </li>
-        <li class="pagination__link">
-            <span>10</span>
-        </li>
-        <li class="pagination__link pagination__link--prev">
-            <a href="#">&gt;</a>
+
+        {% for element in elements %}
+            {% if element is iterable %}
+                {% for page, url in element %}
+                    <li class="pagination__link {{ page == paginator.currentPage() ? 'pagination__link--current' : '' }}">
+                        <a href="{{ url }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="pagination__link pagination__link--dots">
+                    <span>&hellip;</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        <li class="pagination__link pagination__link--prev {{ not paginator.hasMorePages() ? 'pagination__link--disabled' : '' }}">
+            <a href="{{ paginator.nextPageUrl }}">&gt;</a>
         </li>
     </ul>
 </div>

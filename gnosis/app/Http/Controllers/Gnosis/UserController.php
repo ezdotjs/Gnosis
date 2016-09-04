@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $models = User::with('roles')->paginate(20);
+        $models = User::with('roles')->paginate(10);
         return view('gnosis/layouts/users-index')->with(compact('models'));
     }
 

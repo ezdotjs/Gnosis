@@ -15,7 +15,7 @@
         font-size:     0;
         box-shadow:    $global-box-shadow;
         display:       inline-block;
-        
+
         @extend %clearfix;
     }
 
@@ -62,6 +62,7 @@
                 a,
                 span {
                     color: lighten($color-primary, 15%);
+                    pointer-events: none;
                 }
             }
         }
@@ -69,7 +70,8 @@
         &--current {
             a,
             span {
-
+                pointer-events: none;
+                color: #BBBBBB;
             }
 
             a:after,
