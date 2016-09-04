@@ -15,6 +15,9 @@
                 </header>
                 <main class="content__main">
                     <div class="content__page">
+                        {% if session('flash_message') %}
+                            {% include 'gnosis/partials/_flash.twig' with {'flash' : {'type' : session('flash_message.type'), 'message' : session('flash_message.message')}} %}
+                        {% endif %}
                         {% block content %}{% endblock %}
                     </div>
                 </main>
