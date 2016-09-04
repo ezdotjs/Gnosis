@@ -1,0 +1,11 @@
+////
+/// Styling for CMS logo box
+/// @group components
+/// @author Kristian Cox
+////
+
+.logo {
+    height:     3rem;
+    background: darken($color-dark, 2%);
+    text-align: center;
+}

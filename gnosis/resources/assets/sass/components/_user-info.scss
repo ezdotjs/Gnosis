@@ -1,0 +1,45 @@
+////
+/// Styling for user info box
+/// @group components
+/// @author Kristian Cox
+////
+
+.user-info {
+    padding: 1rem 0;
+    display: flex;
+
+    &__photo {
+        padding-left: 1rem;
+        box-sizing:   border-box;
+        flex-basis:   content;
+
+        > img {
+            height:        4rem;
+            width:         4rem;
+            border-radius: 50%;
+        }
+    }
+
+    &__details {
+        padding:    0 1rem;
+        box-sizing: border-box;
+        flex-basis: auto;
+    }
+
+    &__name {
+        display:     block;
+        color:       white;
+        width:       100%;
+        line-height: 1rem;
+        margin-top:  1rem;
+    }
+
+    &__role {
+        display:     block;
+        color:       white;
+        width:       100%;
+        font-size:   0.75rem;
+        line-height: 0.75rem;
+        margin-top:  0.25rem;
+    }
+}
