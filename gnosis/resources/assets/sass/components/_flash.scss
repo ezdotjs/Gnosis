@@ -10,6 +10,7 @@
     display:       flex;
     border-left:   0.5rem solid darken($color-primary, 10%);
     margin-bottom: 1rem;
+    box-shadow:    $global-box-shadow;
 
     &__message {
         flex: 1;
