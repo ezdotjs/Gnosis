@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Gnosis;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Gnosis\UserStoreRequest;
+use App\Http\Requests\Gnosis\UserUpdateRequest;
 use App\Models\Gnosis\User;
+use App\Models\Gnosis\Role;
 use Illuminate\Http\Request;
 use Session;
 
@@ -17,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $models = User::paginate(20);
+        $models = User::with('roles')->paginate(20);
         return view('gnosis/layouts/users-index')->with(compact('models'));
     }
 
@@ -28,7 +30,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('gnosis/layouts/users-create');
+        $roles = Role::whereVisible(true)->pluck('label', 'name');
+        return view('gnosis/layouts/users-create')->with(compact('roles'));
     }
 
     /**
@@ -44,6 +47,10 @@ class UserController extends Controller
             'email'    => $request->email,
             'password' => bcrypt($request->password)
         ]);
+
+        foreach ($request->roles as $role) {
+            $model->grantRole($role);
+        }
 
         Session::flash('flash_message', [
             'type'    => 'success',
@@ -72,9 +79,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::whereVisible(true)->pluck('label', 'name');
         $model = User::findOrFail($id);
 
-        return view('gnosis/layouts/users-edit')->with(compact('model'));
+        return view('gnosis/layouts/users-edit')->with(compact('model', 'roles'));
     }
 
     /**
@@ -84,9 +92,27 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        $model = User::findOrFail($id);
+        $model->update([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        $model->revokeAllRoles();
+
+        foreach ($request->roles as $role) {
+            $model->grantRole($role);
+        }
+
+        Session::flash('flash_message', [
+            'type'    => 'success',
+            'message' => 'The new user was updated successfully.'
+        ]);
+
+        return redirect()->route('users.edit', ['id' => $model->id]);
     }
 
     /**

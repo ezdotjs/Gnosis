@@ -23,8 +23,8 @@
                         </div>
                         <div class="grid__col grid__col--md-6 margin-bottom">
                             <div class="form__field">
-                                {{ form_label('role', 'Role') }}
-                                {{ form_select('role') }}
+                                {{ form_label('roles', 'Roles') }}
+                                {{ form_select('roles[]', roles, null, {'multiple' : 'multiple'}) }}
                             </div>
                         </div>
                     </div>

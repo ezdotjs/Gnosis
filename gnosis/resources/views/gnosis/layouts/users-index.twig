@@ -9,6 +9,7 @@
             <tr>
                 <th class="show-mobile">Name</th>
                 <th>Email</th>
+                <th>Roles</th>
                 <th width="90">Created</th>
                 <th width="90">Updated</th>
             </tr>
@@ -23,6 +24,13 @@
                         </span>
                     </td>
                     <td>{{ model.email }}</td>
+                    <td>
+                        <ul class="table__roles">
+                            {% for role in model.roles %}
+                                <li class="table__role table__role--{{ role.name }}">{{ role.label }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
                     <td>{{ model.created_at|date('d/m/Y') }} {{ model.created_at|date('H:i') }}</td>
                     <td>{{ model.updated_at|date('d/m/Y') }} {{ model.updated_at|date('H:i') }}</td>
                 </tr>
@@ -32,6 +40,7 @@
             <tr>
                 <th class="show-mobile">Name</th>
                 <th>Email</th>
+                <th>Roles</th>
                 <th>Created</th>
                 <th>Updated</th>
             </tr>

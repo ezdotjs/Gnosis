@@ -19,6 +19,18 @@ trait HasRoles
         );
     }
 
+    public function revokeRole($role)
+    {
+        return $this->roles()
+            ->wherePivot('name', '=', $role)
+            ->detach();
+    }
+
+    public function revokeAllRoles()
+    {
+        return $this->roles()->sync([]);
+    }
+
     public function hasRole($role)
     {
         if (is_string($role)) {

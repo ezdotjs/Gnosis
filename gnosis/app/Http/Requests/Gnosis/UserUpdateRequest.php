@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Session;
 
-class UserStoreRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,10 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'email'            => 'required|email|unique:users,email',
+            'email'            => 'required|email|unique:users,email,' . $this->route('user'),
             'name'             => 'required|max:128',
-            'password'         => 'required:min:8',
-            'password_confirm' => 'required|same:password',
+            'password'         => 'required_with:password_confirm|min:8',
+            'password_confirm' => 'required_with:password|same:password',
             'roles'            => 'required'
         ];
 
