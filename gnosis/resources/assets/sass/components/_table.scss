@@ -66,6 +66,39 @@
         }
     }
 
+    &__roles {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__role {
+        font-size:  0.75rem;
+        color:      #FFFFFF;
+        text-align: center;
+        line-height: 1rem;
+
+        &--super-admin {
+            background: $color-super-admin;
+        }
+
+        &--admin {
+            background: $color-admin;
+        }
+
+        &--developer {
+            background: $color-developer;
+        }
+
+        &--contributor {
+            background: $color-contributor;
+        }
+
+        &--subscriber {
+            background: $color-subscriber;
+        }
+    }
+
     @media screen and (max-width: (#{map-get($breakpoints, 'md')}) - 1px) {
         th,
         td {

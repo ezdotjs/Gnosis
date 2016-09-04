@@ -4,15 +4,21 @@
 /// @author Kristian Cox
 ////
 
-$color-primary:   #1BBC9B;
-$color-secondary: #346BB2;
-$color-tertiary:  #C4CC36;
+$color-primary:     #1BBC9B;
+$color-secondary:   #346BB2;
+$color-tertiary:    #C4CC36;
 
-$color-light:     #E0E0E0;
-$color-dark:      #283a47;
+$color-light:       #E0E0E0;
+$color-dark:        #283a47;
 
-$color-default:   #FFFFFF;
-$color-success:   #C4CC36;
-$color-info:      #4893DB;
-$color-warning:   #FFA726;
-$color-danger:    #EF5350;
+$color-default:     #FFFFFF;
+$color-success:     #C4CC36;
+$color-info:        #4893DB;
+$color-warning:     #FFA726;
+$color-danger:      #EF5350;
+
+$color-super-admin: darken($color-danger, 20%);
+$color-admin:       $color-danger;
+$color-developer:   $color-success;
+$color-contributor: $color-info;
+$color-subscriber:  $color-dark;
