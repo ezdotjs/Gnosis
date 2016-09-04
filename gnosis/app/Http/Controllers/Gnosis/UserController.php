@@ -123,6 +123,25 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        foreach ($user->roles as $role) {
+            if ($role->protected) {
+                Session::flash('flash_message', [
+                    'type'    => 'danger',
+                    'message' => "The user could not be deleted, due to having the <strong>{$role->label}</strong> role: The role is protected"
+                ]);
+                return redirect()->back();
+            }
+        }
+
+        $user->delete();
+
+        Session::flash('flash_message', [
+            'type'    => 'success',
+            'message' => 'The user was deleted successfully.'
+        ]);
+
+        return redirect()->back();
     }
 }

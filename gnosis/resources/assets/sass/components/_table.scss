@@ -99,6 +99,22 @@
         }
     }
 
+    &__form {
+        display: inline;
+        font-size: inherit;
+        button {
+            font-size:   inherit;
+            display:     inline;
+            background:  none;
+            border:      none;
+            padding:     none;
+            margin:      none;
+            line-height: 1rem;
+            color:       $color-danger;
+            cursor:      pointer;
+        }
+    }
+
     @media screen and (max-width: (#{map-get($breakpoints, 'md')}) - 1px) {
         th,
         td {

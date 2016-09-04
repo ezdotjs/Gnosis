@@ -20,7 +20,10 @@
                     <td class="show-mobile">
                         {{ model.name|capitalize }}
                         <span class="table__controls">
-                            <a href="{{ route('users.edit', model.id) }}">Edit</a> | <a class="confirm" href="{{ route('users.destroy', model.id) }}">Bin</a>
+                            <a href="{{ route('users.edit', model.id) }}">Edit</a> |
+                            {{ form_open({'route' : ['users.destroy', model.id], 'method' : 'DELETE', 'class' : 'table__form'}) }}
+                                {{ form_button('Delete', {'type' : 'submit', 'value' : 'delete'}) }}
+                            {{ form_close() }}
                         </span>
                     </td>
                     <td>{{ model.email }}</td>
