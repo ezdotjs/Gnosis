@@ -39,8 +39,8 @@ class Can
      */
     public function handle($request, Closure $next, $permission)
     {
-        $permission = Permission::whereName($permission)->first();
-
+        $permission = Permission::whereName($permission)->with('roles')->first();
+        
         if (!$permission || Auth::user()->hasPermission($permission)) {
             return $next($request);
         }
