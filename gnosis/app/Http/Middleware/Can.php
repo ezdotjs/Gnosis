@@ -6,6 +6,7 @@ use App;
 use Auth;
 use Closure;
 use App\Models\Gnosis\Permission;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
 
 class Can
@@ -44,6 +45,6 @@ class Can
             return $next($request);
         }
 
-        App::abort(403, 'Access denied');
+        throw new AuthenticationException;
     }
 }
