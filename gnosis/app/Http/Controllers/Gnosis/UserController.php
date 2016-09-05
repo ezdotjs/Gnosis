@@ -9,6 +9,7 @@ use App\Models\Gnosis\User;
 use App\Models\Gnosis\Role;
 use Illuminate\Http\Request;
 use Session;
+use Auth;
 
 class UserController extends Controller
 {
@@ -54,7 +55,7 @@ class UserController extends Controller
 
         Session::flash('flash_message', [
             'type'    => 'success',
-            'message' => 'The new user was created successfully.'
+            'message' => 'The user was created successfully.'
         ]);
 
         return redirect()->route('users.edit', ['id' => $model->id]);
@@ -109,7 +110,7 @@ class UserController extends Controller
 
         Session::flash('flash_message', [
             'type'    => 'success',
-            'message' => 'The new user was updated successfully.'
+            'message' => 'The user was updated successfully.'
         ]);
 
         return redirect()->route('users.edit', ['id' => $model->id]);
@@ -125,13 +126,23 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        foreach ($user->roles as $role) {
-            if ($role->protected) {
-                Session::flash('flash_message', [
-                    'type'    => 'danger',
-                    'message' => "The user could not be deleted, due to having the <strong>{$role->label}</strong> role: The role is protected"
-                ]);
-                return redirect()->back();
+        if ($user->id == Auth::user()->id) {
+            Session::flash('flash_message', [
+                'type'    => 'danger',
+                'message' => "You cannot delete yourself"
+            ]);
+            return redirect()->back();
+        }
+
+        if (!Auth::user()->hasRole('super_admin')) {
+            foreach ($user->roles as $role) {
+                if ($role->protected) {
+                    Session::flash('flash_message', [
+                        'type'    => 'danger',
+                        'message' => "The user could not be deleted, due to having the <strong>{$role->label}</strong> role: The role is protected"
+                    ]);
+                    return redirect()->back();
+                }
             }
         }
 

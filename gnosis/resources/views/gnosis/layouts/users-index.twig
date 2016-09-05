@@ -18,7 +18,7 @@
             {% for model in models %}
                 <tr>
                     <td class="show-mobile">
-                        {{ model.name|capitalize }}
+                        {{ model.name|title }}
                         <span class="table__controls">
                             <a href="{{ route('users.edit', model.id) }}">Edit</a> |
                             {{ form_open({'route' : ['users.destroy', model.id], 'method' : 'DELETE', 'class' : 'table__form'}) }}

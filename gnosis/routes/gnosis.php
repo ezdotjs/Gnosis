@@ -14,7 +14,7 @@ Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
     Route::group(['middleware' => ['auth', 'can:cms']], function () {
 
         // Auth
-        Route::post('/logout', 'AuthController@logout')->name('logout');
+        Route::get('/logout', 'AuthController@logout')->name('logout');
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
         Route::resource('users', 'UserController');

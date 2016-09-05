@@ -57,7 +57,7 @@ class AuthController extends Controller
             ]));
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         $this->guard()->logout();
         $request->session()->flush();
