@@ -1,23 +1,22 @@
 <?php
 
 Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
-    Route::get('/', 'DashboardController@index')->name('dashboard');
 
-    Route::resource('users', 'UserController');
+    // Guest users only
+    Route::group(['middleware' => 'guest'], function () {
+
+        // Auth
+        Route::get('/login', 'AuthController@getLogin')->name('login.get');
+        Route::post('/login', 'AuthController@postLogin')->name('login.post');
+    });
+
+    // CMS users only
+    Route::group(['middleware' => ['auth', 'can:cms']], function () {
+
+        // Auth
+        Route::post('/logout', 'AuthController@logout')->name('logout');
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+
+        Route::resource('users', 'UserController');
+    });
 });
-
-/**
- * Debug Routes
- */
-
-// Creates a new user
-
-// Route::group(['prefix' => 'debug'], function () {
-//     Route::get('user', function () {
-//         return App\Models\Gnosis\User::create([
-//             'name'     => 'admin',
-//             'email'    => 'example@gnosis.xyz',
-//             'password' => bcrypt('password'),
-//         ]);
-//     });
-// });

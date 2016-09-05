@@ -39,6 +39,10 @@
         background:     darken($color-default, 5%);
     }
 
+    &:visited {
+        color: #FFFFFF;
+    }
+
     &--primary {
         background: $color-primary;
         color:      #FFFFFF;

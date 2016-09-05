@@ -12,6 +12,15 @@
             <div class="content">
                 <header class="content__header">
                     <h1>{{ block('title') }}</h1>
+                    <div class="content__actions">
+                        <div class="content__logout">
+                            <a href="">
+                                <svg class="icon">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_logout"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </header>
                 <main class="content__main">
                     <div class="content__page">
@@ -23,36 +32,6 @@
                 </main>
             </div>
         </div>
-        <script>
-            // Critical JS
-
-            // Load webfonts asynchronously
-            var WebFontConfig = {
-                google: {
-                    families: [
-                        'Dosis:300,500',
-                        'Open+Sans:400,700'
-                    ]
-                }
-            };
-            (function (d) {
-                var wf = d.createElement('script'), s = d.scripts[0];
-                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
-                s.parentNode.insertBefore(wf, s);
-            })(document);
-
-            // Load icon SVG asynchronously
-            (function (d) {
-                var x = new XMLHttpRequest();
-                x.open('GET', '/gnosis/img/icons.svg', true);
-                x.send();
-                x.onload = function (e) {
-                    var div = d.createElement('div');
-                    div.style.display = 'none';
-                    div.innerHTML = x.responseText;
-                    d.body.insertBefore(div, d.body.childNodes[0]);
-                }
-            })(document);
-        </script>
+        {% include 'gnosis/partials/_critical-js.twig' %}
     </body>
 </html>

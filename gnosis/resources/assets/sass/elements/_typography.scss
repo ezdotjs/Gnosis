@@ -90,3 +90,12 @@ p {
     margin:      0 0 $line-height-base;
     color:       #333333;
 }
+
+a {
+    text-decoration: none;
+    color:           $color-primary;
+
+    &:visited {
+        color: darken($color-primary, 10%);
+    }
+}

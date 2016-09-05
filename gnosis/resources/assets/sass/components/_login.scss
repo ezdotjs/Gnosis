@@ -1,0 +1,34 @@
+////
+/// Styling for login form
+/// @group components
+/// @author Kristian Cox
+////
+
+.login {
+    width:      100vw;
+    height:     100vh;
+
+    &__form {
+        position:   absolute;
+        box-sizing: border-box;
+        box-shadow: $global-box-shadow;
+        max-width:  300px;
+        left:       50%;
+        top:        50%;
+        transform:  translate(-50%, -50%);
+        background: $color-light;
+        padding:    1rem;
+    }
+}
+
+@media screen and (max-width: (#{map-get($breakpoints, 'md')}) - 1px) {
+    .login {
+        &__form {
+            max-width:none;
+            left: auto;
+            transform:  translate(0, -50%);
+            width: auto;
+            margin: 0 1rem;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.float-right {
+    @extend %clearfix;
+    > * {
+        float: right;
+    }
+}
+
+.float-left {
+    @extend %clearfix;
+    > * {
+        float: left;
+    }
+}

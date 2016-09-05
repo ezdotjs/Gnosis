@@ -19,17 +19,30 @@
         left:       0;
         right:      0;
 
-        .icon {
-            padding-right: 1rem;
-            float:         left;
-            padding-top:   0.5rem;
-        }
-
         h1 {
             font-size:      1rem;
             color:          #FFFFFF;
             text-transform: uppercase;
             float:          left;
+        }
+
+        .content__actions {
+            @extend %clearfix;
+            float:   right;
+            display: inline-block;
+
+            .icon {
+                height:       1rem;
+                width:        1rem;
+            }
+        }
+        .content__logout {
+            a {
+                display: block;
+                padding: 0.5rem 1rem;
+                color: white;
+                background: darken($color-primary, 5%);
+            }
         }
     }
 
