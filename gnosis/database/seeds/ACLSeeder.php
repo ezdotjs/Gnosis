@@ -72,7 +72,7 @@ class ACLSeeder extends Seeder
             'name'      => 'admin',
             'label'     => 'Admin',
             'visible'   => true,
-            'protected' => false
+            'protected' => true
         ]);
 
         // Attach all permissions to Admin
