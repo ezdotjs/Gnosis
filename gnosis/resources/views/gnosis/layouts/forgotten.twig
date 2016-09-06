@@ -1,13 +1,13 @@
 {% extends 'gnosis/layouts/blank.twig' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Forgotten Password{% endblock %}
 
 {% block content %}
     <div class="login">
         {% if session('flash_message') %}
             {% include 'gnosis/partials/_flash.twig' with {'flash' : {'type' : session('flash_message.type'), 'message' : session('flash_message.message') }} %}
         {% endif %}
-        {{ form_open({'route' : 'login.post', 'method' : 'POST', 'class' : 'form login__form'}) }}
+        {{ form_open({'route' : 'forgotten.post', 'method' : 'POST', 'class' : 'form login__form'}) }}
             <div class="grid grid--gutters margin-bottom">
                 <div class="grid__col grid__col--md-12">
                     <div class="login__logo">
@@ -17,15 +17,10 @@
                     </div>
                 </div>
                 <div class="grid__col grid__col--md-12 margin-bottom">
+                    <p class="margin-bottom-clear">Please enter your email below.<br>A password reset link will be emailed to you.</p>
                     <div class="form__field">
                         {{ form_label('email', 'Email') }}
                         {{ form_email('email', null, {'required' : 'required'}) }}
-                    </div>
-                </div>
-                <div class="grid__col grid__col--md-12 margin-bottom">
-                    <div class="form__field">
-                        {{ form_label('password', 'Password') }}
-                        {{ form_password('password', null, {'required' : 'required'}) }}
                     </div>
                 </div>
                 <div class="grid__col grid__col--md-12">
@@ -36,7 +31,7 @@
             </div>
             <hr>
             <div class="align-center">
-                <a href="{{ route('forgotten.get') }}">Forgotten password?</a>
+                <a href="{{ route('login.get') }}">Return to login</a>
             </div>
         {{ form_close() }}
     </div>

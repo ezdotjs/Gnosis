@@ -8,6 +8,10 @@ Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
         // Auth
         Route::get('/login', 'AuthController@getLogin')->name('login.get');
         Route::post('/login', 'AuthController@postLogin')->name('login.post');
+        Route::get('/forgotten', 'AuthController@getForgotten')->name('forgotten.get');
+        Route::post('/forgotten', 'AuthController@postForgotten')->name('forgotten.post');
+        Route::get('/reset/{token}', 'AuthController@getReset')->name('reset.get');
+        Route::post('/reset', 'AuthController@postReset')->name('reset.post');
     });
 
     // CMS users only
