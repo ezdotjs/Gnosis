@@ -33,8 +33,10 @@ class UserUpdateRequest extends FormRequest
             'roles'            => 'required'
         ];
 
-        foreach ($this->request->get('roles') as $k => $v) {
-            $rules['roles.' . $k] = 'exists:roles,name|not_in:super_admin';
+        if ($this->request->get('roles')) {
+            foreach ($this->request->get('roles') as $k => $v) {
+                $rules['roles.' . $k] = 'exists:roles,name|not_in:super_admin';
+            }
         }
 
         return $rules;
