@@ -89,11 +89,19 @@ class ACLSeeder extends Seeder
             'protected' => false
         ]);
 
+        $role->permissions()->sync([
+            $perms['cms']->id
+        ]);
+
         $role = Role::firstOrCreate([
             'name'      => 'contributor',
             'label'     => 'Contributor',
             'visible'   => true,
             'protected' => false
+        ]);
+
+        $role->permissions()->sync([
+            $perms['cms']->id
         ]);
 
         $role = Role::firstOrCreate([

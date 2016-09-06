@@ -21,7 +21,7 @@
                         {{ model.name|title }}
                         <span class="table__controls">
                             <a href="{{ route('users.edit', model.id) }}">Edit</a> |
-                            {{ form_open({'route' : ['users.destroy', model.id], 'method' : 'DELETE', 'class' : 'table__form'}) }}
+                            {{ form_open({'route' : ['users.destroy', model.id], 'method' : 'DELETE', 'class' : 'table__form confirm'}) }}
                                 {{ form_button('Delete', {'type' : 'submit', 'value' : 'delete'}) }}
                             {{ form_close() }}
                         </span>

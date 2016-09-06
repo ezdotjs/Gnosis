@@ -20,7 +20,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $models = User::with('roles')->paginate(5);
+        $this->authorize('users.list');
+
+        $models = User::with('roles')->orderBy('created_at', 'DESC')->paginate(5);
         return view('gnosis/layouts/users-index')->with(compact('models'));
     }
 
@@ -31,6 +33,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('users.create');
+
         $roles = Role::whereVisible(true)->pluck('label', 'name');
         return view('gnosis/layouts/users-create')->with(compact('roles'));
     }
@@ -43,6 +47,8 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
+        $this->authorize('users.create');
+
         $model = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
@@ -66,17 +72,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified user.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified user.
      *
      * @param  int  $id
@@ -84,6 +79,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('users.view');
+
         $roles = Role::whereVisible(true)->pluck('label', 'name');
         $model = User::findOrFail($id);
 
@@ -99,6 +96,8 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
+        $this->authorize('users.update');
+
         $model = User::findOrFail($id);
         $model->update([
             'name'     => $request->name,
@@ -132,6 +131,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('users.delete');
+
         $user = User::findOrFail($id);
 
         if ($user->id == Auth::user()->id) {

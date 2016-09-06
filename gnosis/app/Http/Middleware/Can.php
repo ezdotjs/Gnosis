@@ -48,7 +48,7 @@ class Can
 
         Session::flash('flash_message', [
             'type'    => 'danger',
-            'message' => 'You are not authorised to view this area'
+            'message' => 'You are not authorised to access this area'
         ]);
 
         return redirect()->back();

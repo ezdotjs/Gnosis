@@ -7,9 +7,10 @@ class Gnosis
     constructor()
     {
         this.menu        = {};
-        this.menu.el     = _(document.body, '.nav')[0];
-        this.menu.button = _(document.body, '.content__menu-button')[0];
-        this.flash       = _(document.body, '.flash__close');
+        this.menu.el     = _('.nav')[0];
+        this.menu.button = _('.content__menu-button')[0];
+        this.flash       = _('.flash__close');
+        this.confirms    = _('form.confirm');
         this.addListeners();
     }
 
@@ -18,8 +19,11 @@ class Gnosis
         !this.menu.el || this.menu.button.addEventListener('click', this.toggleMenu.bind(this));
 
         [...this.flash].forEach((el) => {
-            console.log(el);
             el.addEventListener('click', this.removeFlash, true);
+        });
+
+        [...this.confirms].forEach((el) => {
+            el.addEventListener('click', this.confirmForm, true);
         });
     }
 
@@ -34,6 +38,14 @@ class Gnosis
         e.preventDefault();
         let parent = this.parentNode;
         parent.parentNode.removeChild(parent);
+    }
+
+    confirmForm(e)
+    {
+        e.preventDefault();
+        if (confirm('Do you wish to proceed?')) {
+            this.submit();
+        }
     }
 }
 
