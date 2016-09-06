@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App;
 use Auth;
 use Closure;
+use Session;
 use App\Models\Gnosis\Permission;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
@@ -40,11 +41,16 @@ class Can
     public function handle($request, Closure $next, $permission)
     {
         $permission = Permission::whereName($permission)->with('roles')->first();
-        
+
         if (!$permission || Auth::user()->hasPermission($permission)) {
             return $next($request);
         }
 
-        throw new AuthenticationException;
+        Session::flash('flash_message', [
+            'type'    => 'danger',
+            'message' => 'You are not authorised to view this area'
+        ]);
+
+        return redirect()->back();
     }
 }

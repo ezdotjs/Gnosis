@@ -14,11 +14,14 @@ Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
         Route::post('/reset', 'AuthController@postReset')->name('reset.post');
     });
 
-    // CMS users only
-    Route::group(['middleware' => ['auth', 'can:cms']], function () {
-
+    // General Authorised users
+    Route::group(['middleware' => ['auth']], function () {
         // Auth
         Route::get('/logout', 'AuthController@logout')->name('logout');
+    });
+
+    // CMS users only
+    Route::group(['middleware' => ['auth', 'can:cms']], function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
         Route::resource('users', 'UserController');

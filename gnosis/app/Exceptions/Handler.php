@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Session;
 
 class Handler extends ExceptionHandler
 {
@@ -60,6 +61,11 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return response(view('gnosis/errors/403'), 403);
+        Session::flash('flash_message', [
+            'type'    => 'danger',
+            'message' => 'You must be logged in to access that area'
+        ]);
+
+        return redirect()->route('login.get');
     }
 }
