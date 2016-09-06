@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login | {{ config_get('app.name') }}</title>
-        <link rel="stylesheet" href="{{ elixir('/gnosis/css/style.css') }}">
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="login">
-                {% if session('flash_message') %}
-                    {% include 'gnosis/partials/_flash.twig' with {'flash' : {'type' : session('flash_message.type'), 'message' : session('flash_message.message') }} %}
-                {% endif %}
-                {{ form_open({'route' : 'login.post', 'method' : 'POST', 'class' : 'form login__form'}) }}
-                    <div class="grid grid--gutters margin-bottom">
-                        <div class="grid__col grid__col--md-12 align-center margin-bottom">
-                            <h1 class="margin-bottom-clear">GNOSIS</h1>
-                        </div>
-                        <div class="grid__col grid__col--md-12 margin-bottom">
-                            <div class="form__field">
-                                {{ form_label('email', 'Email') }}
-                                {{ form_email('email', null, {'required' : 'required'}) }}
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col--md-12 margin-bottom">
-                            <div class="form__field">
-                                {{ form_label('password', 'Password') }}
-                                {{ form_password('password', null, {'required' : 'required'}) }}
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col--md-12">
-                            <div class="form__field align-center">
-                                {{ form_button('Login', {'type' : 'submit', 'class' : 'button button--primary'}) }}
-                            </div>
-                        </div>
+{% extends 'gnosis/layouts/blank.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="login">
+        {% if session('flash_message') %}
+            {% include 'gnosis/partials/_flash.twig' with {'flash' : {'type' : session('flash_message.type'), 'message' : session('flash_message.message') }} %}
+        {% endif %}
+        {{ form_open({'route' : 'login.post', 'method' : 'POST', 'class' : 'form login__form'}) }}
+            <div class="grid grid--gutters margin-bottom">
+                <div class="grid__col grid__col--md-12 align-center margin-bottom">
+                    <h1 class="margin-bottom-clear">GNOSIS</h1>
+                </div>
+                <div class="grid__col grid__col--md-12 margin-bottom">
+                    <div class="form__field">
+                        {{ form_label('email', 'Email') }}
+                        {{ form_email('email', null, {'required' : 'required'}) }}
                     </div>
-                    <hr>
-                    <div class="align-center">
-                        <a href="#">Forgotten password?</a>
+                </div>
+                <div class="grid__col grid__col--md-12 margin-bottom">
+                    <div class="form__field">
+                        {{ form_label('password', 'Password') }}
+                        {{ form_password('password', null, {'required' : 'required'}) }}
                     </div>
-                {{ form_close() }}
+                </div>
+                <div class="grid__col grid__col--md-12">
+                    <div class="form__field align-center">
+                        {{ form_button('Login', {'type' : 'submit', 'class' : 'button button--primary'}) }}
+                    </div>
+                </div>
             </div>
-        </div>
-        {% include 'gnosis/partials/_critical-js.twig' %}
-    </body>
-</html>
+            <hr>
+            <div class="align-center">
+                <a href="#">Forgotten password?</a>
+            </div>
+        {{ form_close() }}
+    </div>
+{% endblock %}

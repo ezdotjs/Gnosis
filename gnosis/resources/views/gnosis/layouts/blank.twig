@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} | {{ config_get('app.name') }}</title>
+        <link rel="stylesheet" href="{{ elixir('/gnosis/css/style.css') }}">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+        <script src="{{ elixir('/gnosis/js/script.js') }}"></script>
+        {% include 'gnosis/partials/_critical-js.twig' %}
+    </body>
+</html>

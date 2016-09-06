@@ -8,7 +8,7 @@
     background: $color-dark;
     flex-basis: content;
     margin-left: -4rem;
-    transition: margin 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
 
     &--open {
         margin-left: 0;
