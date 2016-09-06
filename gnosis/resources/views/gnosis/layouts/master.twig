@@ -11,6 +11,11 @@
             {% include 'gnosis/partials/_navigation.twig' %}
             <div class="content">
                 <header class="content__header">
+                    <a class="content__menu-button" href="#">
+                        <svg class="icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_menu"></use>
+                        </svg>
+                    </a>
                     <h1>{{ block('title') }}</h1>
                     <div class="content__actions">
                         <div class="content__logout">
@@ -32,6 +37,7 @@
                 </main>
             </div>
         </div>
+        <script src="{{ elixir('/gnosis/js/script.js') }}"></script>
         {% include 'gnosis/partials/_critical-js.twig' %}
     </body>
 </html>

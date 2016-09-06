@@ -31,7 +31,7 @@
         float: left;
     }
 
-    @include breakpoint('md') {
+    @include breakpoint('lg') {
         .icon {
             margin-left: -0.5rem;
         }

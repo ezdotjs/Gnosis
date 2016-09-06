@@ -7,6 +7,13 @@
 .nav {
     background: $color-dark;
     flex-basis: content;
+    margin-left: -4rem;
+    transition: margin 200ms ease-in-out;
+
+    &--open {
+        margin-left: 0;
+    }
+
     ul {
         list-style: none;
         text-align: left;
@@ -59,6 +66,11 @@
     }
 
     @include breakpoint('md') {
+        margin-left: 0;
+    }
+
+    @include breakpoint('lg') {
+        margin-left: 0;
         ul {
             min-width: 160px;
             .icon {

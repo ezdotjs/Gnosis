@@ -19,6 +19,18 @@
         left:       0;
         right:      0;
 
+        .content__menu-button {
+            float:        left;
+            margin-right: 1rem;
+            padding-top:  0.75rem;
+            .icon {
+                display:     block;
+                color:       white;
+                width:       1.5rem;
+                height:      1.5rem;
+            }
+        }
+
         h1 {
             font-size:      1rem;
             color:          #FFFFFF;
@@ -58,5 +70,13 @@
         padding:    2rem;
         overflow-y: auto;
         height:     100%;
+    }
+
+    @include breakpoint('md') {
+        &__header {
+            .content__menu-button {
+                display: none;
+            }
+        }
     }
 }
