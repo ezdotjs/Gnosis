@@ -43,13 +43,17 @@
                 </svg><span class="nav__label">Analytics</span>
             </a>
         </li>
-        <li class="nav__item {{ 'cms/users' in app.request.path ? 'nav__item--active' : '' }} {{ app.request.is('users') }}">
-            <a href="{{ route('users.index') }}">
-                <svg class="icon">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_users"></use>
-                </svg><span class="nav__label">Users</span>
-            </a>
-        </li>
+
+        {% if auth_user().hasPermission('users.list') %}
+            <li class="nav__item {{ 'cms/users' in app.request.path ? 'nav__item--active' : '' }} {{ app.request.is('users') }}">
+                <a href="{{ route('users.index') }}">
+                    <svg class="icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_users"></use>
+                    </svg><span class="nav__label">Users</span>
+                </a>
+            </li>
+        {% endif %}
+
         <li class="nav__item {{ 'cms/settings' in app.request.path ? 'nav__item--active' : '' }} nav__item--disabled">
             <a href="/">
                 <svg class="icon">

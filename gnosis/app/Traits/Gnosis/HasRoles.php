@@ -39,8 +39,14 @@ trait HasRoles
         return !! $role->intersect($this->roles)->count();
     }
 
-    public function hasPermission(Permission $permission)
+    public function hasPermission($permission)
     {
+        if (is_string($permission)) {
+            $permission = Permission::whereName($permission)->with('roles')->first();
+            if (!$permission) {
+                return false;
+            }
+        }
         return $this->hasRole($permission->roles);
     }
 }
