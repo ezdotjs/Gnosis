@@ -9,8 +9,12 @@
         {% endif %}
         {{ form_open({'route' : 'login.post', 'method' : 'POST', 'class' : 'form login__form'}) }}
             <div class="grid grid--gutters margin-bottom">
-                <div class="grid__col grid__col--md-12 align-center margin-bottom">
-                    <h1 class="margin-bottom-clear">GNOSIS</h1>
+                <div class="grid__col grid__col--md-12">
+                    <div class="login__logo">
+                        <svg class="icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_gnosis"></use>
+                        </svg>
+                    </div>
                 </div>
                 <div class="grid__col grid__col--md-12 margin-bottom">
                     <div class="form__field">

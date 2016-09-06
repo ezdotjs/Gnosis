@@ -19,6 +19,17 @@
         background: $color-light;
         padding:    1rem;
     }
+
+    &__logo {
+        text-align: center;
+        .icon {
+            width:      6rem;
+            height:     6rem;
+            color:      $color-primary;
+            margin-top: -6rem;
+            filter:     $global-drop-shadow;
+        }
+    }
 }
 
 @media screen and (max-width: (#{map-get($breakpoints, 'md')}) - 1px) {
