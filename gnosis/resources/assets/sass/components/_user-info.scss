@@ -8,14 +8,15 @@
     padding: 1rem 0;
     display: flex;
 
+    display:    none;
     &__photo {
         padding-left: 1rem;
         box-sizing:   border-box;
         flex-basis:   content;
 
         > img {
-            height:        4rem;
-            width:         4rem;
+            height:        2rem;
+            width:         2rem;
             border-radius: 50%;
         }
     }

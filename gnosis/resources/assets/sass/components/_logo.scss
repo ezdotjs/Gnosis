@@ -8,4 +8,35 @@
     height:     3rem;
     background: darken($color-dark, 2%);
     text-align: center;
+    > div {
+        display: inline-block;
+        margin: 0 auto;
+        @extend %clearfix;
+    }
+    .icon {
+        padding-top: 0.5rem;
+        width:       2rem;
+        height:      2rem;
+        color:       $color-primary;
+        float: left;
+    }
+
+    &__name {
+        display:     none;
+        color:       $color-primary;
+        font-size:   1.5rem;
+        font-family: $font-primary;
+        line-height: 2rem;
+        padding-top:  0.5rem;
+        float: left;
+    }
+
+    @include breakpoint('md') {
+        .icon {
+            margin-left: -0.5rem;
+        }
+        &__name {
+            display: inline-block;
+        }
+    }
 }
