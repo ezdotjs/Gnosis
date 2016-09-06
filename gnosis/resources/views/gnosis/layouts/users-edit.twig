@@ -10,19 +10,19 @@
                     <legend>Basic Details</legend>
                     <div class="grid grid--gutters">
                         <div class="grid__col grid__col--md-6 margin-bottom">
-                            <div class="form__field">
+                            <div class="form__field {{ form_error('email', errors, 'users.update') }}">
                                 {{ form_label('email', 'Email') }}
                                 {{ form_email('email') }}
                             </div>
                         </div>
                         <div class="grid__col grid__col--md-6 margin-bottom">
-                            <div class="form__field">
+                            <div class="form__field {{ form_error('email', errors, 'users.update') }}">
                                 {{ form_label('name', 'Full Name') }}
                                 {{ form_text('name') }}
                             </div>
                         </div>
                         <div class="grid__col grid__col--md-6 margin-bottom">
-                            <div class="form__field">
+                            <div class="form__field {{ form_error('email', errors, 'users.update') }}">
                                 {{ form_label('roles', 'Roles') }}
                                 {{ form_select('roles[]', roles, model.roles.pluck('name').all(), {'multiple' : 'multiple'}) }}
                             </div>
@@ -33,13 +33,13 @@
                     <legend>Password</legend>
                     <div class="grid grid--gutters">
                         <div class="grid__col grid__col--md-6 margin-bottom">
-                            <div class="form__field">
+                            <div class="form__field {{ form_error('email', errors, 'users.update') }}">
                                 {{ form_label('password', 'Password') }}
                                 {{ form_password('password') }}
                             </div>
                         </div>
                         <div class="grid__col grid__col--md-6 margin-bottom">
-                            <div class="form__field">
+                            <div class="form__field {{ form_error('email', errors, 'users.update') }}">
                                 {{ form_label('password_confirm', 'Confirm Password') }}
                                 {{ form_password('password_confirm') }}
                             </div>
@@ -47,8 +47,9 @@
                     </div>
                 </fieldset>
                 <div class="form__controls">
-                    {{ form_button('Save', {'type' : 'submit', 'value' : 'save', 'class' : 'button button--primary'}) }}
-                    {{ form_button('Save & Exit', {'type' : 'submit', 'value' : 'save_exit', 'class' : 'button button--primary'}) }}
+                    {{ form_hidden('__form', 'users.update') }}
+                    {{ form_button('Save', {'name':'save', 'type' : 'submit', 'value' : true, 'class' : 'button button--primary'}) }}
+                    {{ form_button('Save & Exit', {'name':'save_exit', 'type' : 'submit', 'value' : true, 'class' : 'button button--primary'}) }}
                 </div>
             {{ form_close() }}
         </div>

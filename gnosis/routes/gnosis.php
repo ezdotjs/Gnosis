@@ -27,3 +27,16 @@ Route::group(['namespace' => 'Gnosis', 'prefix' => 'cms'], function () {
         Route::resource('users', 'UserController');
     });
 });
+
+// Form Macros
+Form::macro('error', function ($key, $errors, $formName = false) {
+    if (old('__form') === $formName && count($errors) > 0) {
+        return $errors->has($key) ? 'form__field--error' : '';
+    }
+});
+
+Form::macro('errorMessage', function ($key, $errors, $formName = false) {
+    if (old('__form') === $formName && count($errors) > 0) {
+        return $errors->has($key) ? "data-error=\"" . $errors->first($key) . "\"" : '';
+    }
+});

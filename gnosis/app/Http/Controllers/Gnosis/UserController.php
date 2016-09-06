@@ -58,6 +58,10 @@ class UserController extends Controller
             'message' => 'The user was created successfully.'
         ]);
 
+        if ($request->has('save_exit')) {
+            return redirect()->route('users.index');
+        }
+
         return redirect()->route('users.edit', ['id' => $model->id]);
     }
 
@@ -112,6 +116,10 @@ class UserController extends Controller
             'type'    => 'success',
             'message' => 'The user was updated successfully.'
         ]);
+
+        if ($request->has('save_exit')) {
+            return redirect()->route('users.index');
+        }
 
         return redirect()->route('users.edit', ['id' => $model->id]);
     }

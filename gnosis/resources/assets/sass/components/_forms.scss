@@ -19,4 +19,20 @@
         margin:  0 -1rem 1rem -1rem;
         border-bottom: 2px solid darken($color-light, 10%);
     }
+
+    &__field {
+        &--error {
+            input[type=text],
+            input[type=password],
+            input[type=url],
+            input[type=email],
+            input[type=tel],
+            input[type=search],
+            input[type=number],
+            textarea,
+            select {
+                border-left: 0.25rem solid $color-danger;
+            }
+        }
+    }
 }
